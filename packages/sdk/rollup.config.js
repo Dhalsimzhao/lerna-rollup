@@ -9,10 +9,10 @@ const alias = require("rollup-plugin-alias");
 const pkg = require("./package.json");
 
 function isBareModuleId(id) {
-  // console.log('id', id);
-  const res = !id.startsWith(".") && !id.startsWith("/");
-  // console.log('res', res);
-  return res;
+  if (id.includes("@leap")) {
+    return false;
+  }
+  return !id.startsWith(".") && !id.startsWith("/");
 }
 
 const cjs = [
@@ -45,8 +45,8 @@ const esm = [
     external: isBareModuleId,
     plugins: [
       alias({
-        "@leap/ui-elements": "../packages/ui-elements",
-        "@leap/ui-components": "../packages/ui-components"
+        "@leap/ui-elements": "../ui-elements/esm/ui-elements.js",
+        "@leap/ui-components": "../ui-components/esm/ui-components.js"
       }),
       babel({
         exclude: /node_modules/,

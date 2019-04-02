@@ -6,19 +6,14 @@ const { sizeSnapshot } = require("rollup-plugin-size-snapshot");
 const { uglify } = require("rollup-plugin-uglify");
 const alias = require("rollup-plugin-alias");
 
+const path = require("path");
 const pkg = require("./package.json");
 
 function isBareModuleId(id) {
-  // return false;
+  if (id.includes("@leap")) {
+    return false;
+  }
   return !id.startsWith(".") && !id.startsWith("/");
-
-  // const libs = [
-  //   'react',
-  //   'react-dom',
-  //   'prop-types',
-  //   'styled-components'
-  // ];
-  // return libs.includes(id);
 }
 
 const cjs = [
@@ -51,7 +46,7 @@ const esm = [
     external: isBareModuleId,
     plugins: [
       alias({
-        "ui-elements": "../packages/ui-elements"
+        "@leap/ui-elements": "../ui-elements/esm/ui-elements.js"
       }),
       babel({
         exclude: /node_modules/,

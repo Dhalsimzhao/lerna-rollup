@@ -1,7 +1,7 @@
 import React from "react";
-// import { Button } from '../../../ui-elements'
-import { Button } from "ui-elements";
 import styled from "styled-components";
+
+import { Button } from "@leap/ui-elements";
 
 const Box = styled.div`
   border: 1px solid #aaa;
