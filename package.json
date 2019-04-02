@@ -4,7 +4,8 @@
   "main": "index.js",
   "module": "./packages/sdk/esm/sdk.js",
   "scripts": {
-    "bootstrap": "lerna run bootstrap --hoist",
+    "bootstrap": "lerna bootstrap --no-ci",
+    "bs:h": "lerna bootstrap --hoist",
     "build": "node ./scripts/build.js",
     "clean": "git clean -fdX .",
     "postinstall": "node ./scripts/postinstall.js",
