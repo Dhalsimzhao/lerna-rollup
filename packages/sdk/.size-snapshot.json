@@ -1,0 +1,16 @@
+{
+  "esm/sdk.js": {
+    "bundled": 2736,
+    "minified": 1843,
+    "gzipped": 620,
+    "treeshaked": {
+      "rollup": {
+        "code": 814,
+        "import_statements": 241
+      },
+      "webpack": {
+        "code": 2015
+      }
+    }
+  }
+}
