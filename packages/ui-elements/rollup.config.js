@@ -3,11 +3,13 @@ const replace = require("rollup-plugin-replace");
 const commonjs = require("rollup-plugin-commonjs");
 const nodeResolve = require("rollup-plugin-node-resolve");
 const { sizeSnapshot } = require("rollup-plugin-size-snapshot");
+const sizes = require("rollup-plugin-sizes");
 const { uglify } = require("rollup-plugin-uglify");
 
 const pkg = require("./package.json");
 
 function isBareModuleId(id) {
+  // console.log(id);
   return !id.startsWith(".") && !id.startsWith("/");
 }
 
@@ -40,13 +42,14 @@ const esm = [
     output: { file: `esm/ui-elements.js`, format: "esm" },
     external: isBareModuleId,
     plugins: [
+      nodeResolve(),
       babel({
         exclude: /node_modules/,
         runtimeHelpers: true,
         plugins: [["@babel/transform-runtime", { useESModules: true }]]
       }),
-      nodeResolve(),
-      sizeSnapshot()
+      sizes()
+      // sizeSnapshot(),
     ]
   }
 ];
@@ -114,6 +117,7 @@ const umd = [
 ];
 
 let config;
+console.log("process.env.BUILD_ENV", process.env.BUILD_ENV);
 switch (process.env.BUILD_ENV) {
   case "cjs":
     config = cjs;
@@ -126,8 +130,8 @@ switch (process.env.BUILD_ENV) {
     break;
   default:
     // config = cjs.concat(esm).concat(umd);
-    // config = cjs.concat(esm);
-    config = esm;
+    config = cjs.concat(esm);
+  // config = esm;
 }
 
 module.exports = config;

@@ -12,6 +12,7 @@ function isBareModuleId(id) {
   if (id.includes("@leap")) {
     return false;
   }
+  // return true;
   return !id.startsWith(".") && !id.startsWith("/");
 }
 
@@ -122,6 +123,7 @@ const umd = [
 ];
 
 let config;
+console.log("process.env.BUILD_ENV", process.env.BUILD_ENV);
 switch (process.env.BUILD_ENV) {
   case "cjs":
     config = cjs;

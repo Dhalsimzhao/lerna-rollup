@@ -9,12 +9,12 @@
     "@babel/react"
   ],
   "plugins": [
-    "dev-expression",
     [
       "@babel/proposal-class-properties",
       {
         "loose": true
       }
-    ]
+    ],
+    "react-docgen"
   ]
 }

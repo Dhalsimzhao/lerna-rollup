@@ -22,9 +22,16 @@ const cjs = [
     output: { file: `cjs/ui-components.js`, format: "cjs" },
     external: isBareModuleId,
     plugins: [
-      babel({ exclude: /node_modules/ }),
+      // alias({
+      //   "@leap/ui-elements": "../ui-elements/cjs/ui-elements.js"
+      // }),
+      babel({
+        exclude: /node_modules/,
+        runtimeHelpers: true,
+        plugins: [["@babel/transform-runtime", { useESModules: true }]]
+      }),
       nodeResolve(),
-      replace({ "process.env.NODE_ENV": JSON.stringify("development") })
+      sizeSnapshot()
     ]
   }
   // {
@@ -45,9 +52,9 @@ const esm = [
     output: { file: `esm/ui-components.js`, format: "esm" },
     external: isBareModuleId,
     plugins: [
-      alias({
-        "@leap/ui-elements": "../ui-elements/esm/ui-elements.js"
-      }),
+      // alias({
+      //   "@leap/ui-elements": "../ui-elements/esm/ui-elements.js"
+      // }),
       babel({
         exclude: /node_modules/,
         runtimeHelpers: true,
@@ -134,8 +141,8 @@ switch (process.env.BUILD_ENV) {
     break;
   default:
     // config = cjs.concat(esm).concat(umd);
-    // config = cjs.concat(esm);
-    config = esm;
+    config = cjs.concat(esm);
+  // config = esm;
 }
 
 module.exports = config;
