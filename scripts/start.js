@@ -1,5 +1,5 @@
-const path = require("path");
-const execSync = require("child_process").execSync;
+const path = require('path');
+const execSync = require('child_process').execSync;
 
 // function exec(cmd) {
 //   execSync(cmd, { stdio: "inherit", env: process.env });
@@ -16,9 +16,9 @@ const execSync = require("child_process").execSync;
 
 // process.chdir(cwd);
 
-const runAll = require("npm-run-all");
+const runAll = require('npm-run-all');
 
-runAll(["watch", "storybook"], {
+runAll(['watch', 'storybook'], {
   parallel: false,
   stdin: process.stdin,
   stdout: process.stdout
