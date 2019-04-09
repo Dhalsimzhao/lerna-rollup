@@ -1,6 +1,6 @@
 {
   "name": "@leap/ui-stories",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@leap/sdk": "^1.0.0"
+    "@leap/sdk": "^1.0.1"
   },
   "devDependencies": {
     "@storybook/addon-info": "^5.0.6",
