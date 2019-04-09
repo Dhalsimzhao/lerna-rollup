@@ -4,7 +4,6 @@ import { Button } from '@leap/sdk';
 
 import { storiesOf } from '@storybook/react';
 
-console.log('Button', Button);
 storiesOf('Button', module)
   .addParameters({
     info: { text: 'Normal Button' }
