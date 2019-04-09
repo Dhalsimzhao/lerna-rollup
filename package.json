@@ -11,7 +11,8 @@
     "watch": "lerna run start --stream --parallel --ignore==@leap/ui-stories",
     "storybook": "lerna run storybook --stream --scope=@leap/ui-stories",
     "dev": "run-p watch storybook",
-    "pretty": "prettier --write '{,!(node_modules)/**/}*.js'"
+    "pretty": "prettier --write '{,!(node_modules)/**/}*.js'",
+    "publish": "lerna publish from-package"
   },
   "devDependencies": {
     "husky": "^1.1.3",
