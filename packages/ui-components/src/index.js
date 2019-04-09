@@ -1,1 +1,1 @@
-export * from "./Comp";
+export * from './Comp';

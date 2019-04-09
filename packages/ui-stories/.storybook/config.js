@@ -1,8 +1,8 @@
-import { addParameters, addDecorator, configure } from "@storybook/react";
-import { withInfo } from "@storybook/addon-info";
-import { themes } from "@storybook/theming";
+import { addParameters, addDecorator, configure } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { themes } from '@storybook/theming';
 
-const req = require.context("../stories", true, /.stories\.js$/);
+const req = require.context('../stories', true, /.stories\.js$/);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
@@ -10,7 +10,7 @@ function loadStories() {
 
 addParameters({
   options: {
-    name: "Leap Kit",
+    name: 'Leap Kit',
     showPanel: false,
     isToolshown: false,
     theme: themes.normal

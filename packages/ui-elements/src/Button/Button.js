@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Button extends Component {
   static propTypes = {
@@ -12,7 +12,7 @@ export default class Button extends Component {
 
   static defaultProps = {
     x: 1111,
-    y: "stringgggg"
+    y: 'stringgggg'
   };
 
   render() {
