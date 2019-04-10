@@ -9,7 +9,6 @@ const { uglify } = require('rollup-plugin-uglify');
 const pkg = require('./package.json');
 
 function isBareModuleId(id) {
-  // console.log(id);
   return !id.startsWith('.') && !id.startsWith('/');
 }
 
