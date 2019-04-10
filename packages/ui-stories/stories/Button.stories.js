@@ -10,6 +10,6 @@ storiesOf('Button', module)
   })
   .add('Normal', () => (
     <div>
-      <Button>12313</Button>
+      <Button>111111</Button>
     </div>
   ));
